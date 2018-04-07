@@ -16,8 +16,11 @@
   "private": false,
   "dependencies": {
     "@types/angular": "^1.6.43",
+    "@types/bootstrap": "3",
+    "@types/lodash": "^4.14.106",
     "angular": "^1.6.9",
     "bootstrap": "3",
+    "lodash": "^4.17.5",
     "moment": "^2.22.0"
   }
 }

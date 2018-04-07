@@ -13,19 +13,27 @@ angular.module('app').component('weather', {
             var buildUrl = openWeatherApiService.buildUrl('London', 'US');
             vm.buildUrl = buildUrl;
             // get some data
-            openWeatherApiService
-                .getForecast('Edinburgh', 'GB')
-                .then(function (data) {
+            getWeatherData('Edinburgh', 'GB').then(function (data) {
                 vm.json = data;
-            })
-                .catch(function (err) {
-                console.log(err);
+                vm.city = data.city;
+                var list = data.list;
+                vm.listCount = data.list.length;
             });
             var image = WeatherIconService.icon('01d');
             console.log(image);
             vm.image = image;
         };
+        function getWeatherData(cityName, countryCode) {
+            return openWeatherApiService
+                .getForecast(cityName, countryCode)
+                .then(function (data) {
+                return data;
+            })
+                .catch(function (err) {
+                console.log(err);
+            });
+        }
         vm.$onChanges = function (changes) { };
     },
-    template: "\n  <div class=\"h1\">Weather Component</div>\n<panel-day></panel-day>\n\n<panel-h3></panel-h3>\n\n  <div>image url: {{vm.image}}</div>\n  <div><img ng-src=\"{{vm.image}}\"> </div>\n  <div>test: {{vm.test}}</div>\n  <div>buildUrl: {{vm.buildUrl}}</div>\n  <div>jsonData<pre>{{vm.json | json}}</pre></div>\n  "
+    template: "\n  <div class=\"h1\">Weather Component</div>\n\n  <div>listCount: {{vm.listCount}}</div>\n<div class=\"h3\">{{vm.city.name}} {{vm.city.country}} 5 day forecast</div>\n\n<panel-forecast5></panel-forecast5>\n\n<panel-day></panel-day>\n\n<panel-h3></panel-h3>\n\n  <div>image url: {{vm.image}}</div>\n  <div><img ng-src=\"{{vm.image}}\"> </div>\n  <div>test: {{vm.test}}</div>\n  <div>buildUrl: {{vm.buildUrl}}</div>\n  <div>jsonData<pre>{{vm.json | json}}</pre></div>\n  "
 });

@@ -24,7 +24,7 @@ angular
     function buildUrl(cityName, countryCode) {
         var city = cityName ? cityName : DEFAULT_CITY_NAME;
         var country = countryCode ? countryCode : DEFAULT_COUNTRY_CODE;
-        var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country + "&appid=" + API_ID;
+        var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country + "&appid=" + API_ID + "&units=metric";
         return url;
     }
     function getForecast(city, countryCode) {
@@ -36,7 +36,6 @@ angular
             jsonpCallbackParam: 'callback'
         })
             .then(function (response) {
-            console.info('response.data', response.data);
             var fc5 = response.data;
             return fc5;
         })

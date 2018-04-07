@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/angular": "^1.6.43",
     "angular": "^1.6.9",
-    "bootstrap": "3"
+    "bootstrap": "3",
+    "moment": "^2.22.0"
   }
 }

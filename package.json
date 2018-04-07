@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather app in angular js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/pjsvis/weather-app.git",
+  "author": "Peter J Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pjsvis/weather-app/issues"
+  },
+  "homepage": "https://github.com/pjsvis/weather-app#readme",
+  "private": false,
+  "dependencies": {
+    "@types/angular": "^1.6.43",
+    "angular": "^1.6.9",
+    "bootstrap": "3"
+  }
+}

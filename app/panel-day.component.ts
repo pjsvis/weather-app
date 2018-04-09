@@ -1,5 +1,10 @@
+/**
+ * Display a day's worth of three hour forecast periods
+ */
 angular.module('app').component('panelDay', {
-    bindings: {},
+    bindings: {
+        dayForecast: '<' // IForecast5
+    },
     controllerAs: 'vm',
     controller: function() {
         let vm: any = this;
@@ -7,12 +12,21 @@ angular.module('app').component('panelDay', {
             let vm: any = this;
             vm.$onInit = function() {};
 
-            vm.$onChanges = function() {};
+            vm.$onChanges = function(changes: any) {
+                if (changes.dayForecast.currentValue) {
+                    let dayForecast: List[] = changes.dayForecast.currentValue;
+                    // periods are 3h each
+                    let periods: List[] = dayForecast;
+                    vm.periods = periods;
+                }
+            };
         };
     },
-  template: `
-  <div><pre>
-  - [ ] panel-day contains 8X panel-h3 components
-  - [ ] attrs list of day-data
-  </pre></div>`
+    template: `
+    <div>
+        <panel-h3 ng-repeat="period in vm.periods" period="period">
+        </panel-h3>
+    </div>
+
+`
 });

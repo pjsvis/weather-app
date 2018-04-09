@@ -1,38 +1,39 @@
+/**
+ * Root level weather component
+ *
+ * TODO: 1. Add input text inputs and handle invalid response
+ * TODO: 2. Swap out text inputs for an autocomplete using the
+ * TODO: 3. Use the location api to set the default city
+ * TODO: 4. Use google maps to select a set of coordinates
+ * TODO: See if the location search api is of any use Ref: https://openweathermap.org/forecast5#accuracy
+ * TODO: Add selectors for units: standard, metric, imperial Ref: https://openweathermap.org/forecast5#data
+ */
 angular.module('app').component('weather', {
     bindings: {},
     controllerAs: 'vm',
-    controller: function(openWeatherApiService, WeatherIconService) {
+    controller: function(
+        OpenWeatherApiService: IOpenWeatherApiService,
+        WeatherIconService: IWeatherIconService
+    ) {
         let vm: any = this;
-        // TODO: Refactor this
         vm.$onInit = function() {
-            // Test the service
-            let test = (vm.test = openWeatherApiService.test());
-            vm.test = test;
-
-            // get a specific url
-            let buildUrl = openWeatherApiService.buildUrl('London', 'US');
-            vm.buildUrl = buildUrl;
-
             // get some data
-            getWeatherData('Edinburgh', 'GB').then(function(data: any) {
-                vm.json = data;
-                vm.city = data.city;
-                let list = data.list;
-                vm.listCount = data.list.length;
+            getWeatherData('Edinburgh', 'GB').then(function(forecastData: IForecast5) {
+                vm.forecastData = forecastData;
+                vm.city = forecastData.city;
+                let list = forecastData.list;
+                vm.listCount = forecastData.list.length;
             });
-
-            let image = WeatherIconService.icon('01d');
-            console.log(image);
-            vm.image = image;
         };
 
         function getWeatherData(cityName: string, countryCode: string) {
-            return openWeatherApiService
-                .getForecast(cityName, countryCode)
+            return OpenWeatherApiService.getForecast(cityName, countryCode)
                 .then(function(data: IForecast5) {
+                    // TODO: Test for an empty response and inform the user
                     return data;
                 })
                 .catch(function(err: any) {
+                    // TODO: Show the user the error
                     console.log(err);
                 });
         }
@@ -40,21 +41,9 @@ angular.module('app').component('weather', {
         vm.$onChanges = function(changes: any) {};
     },
     template: `
-  <div class="h1">Weather Component</div>
 
-  <div>listCount: {{vm.listCount}}</div>
 <div class="h3">{{vm.city.name}} {{vm.city.country}} 5 day forecast</div>
 
-<panel-forecast5></panel-forecast5>
-
-<panel-day></panel-day>
-
-<panel-h3></panel-h3>
-
-  <div>image url: {{vm.image}}</div>
-  <div><img ng-src="{{vm.image}}"> </div>
-  <div>test: {{vm.test}}</div>
-  <div>buildUrl: {{vm.buildUrl}}</div>
-  <div>jsonData<pre>{{vm.json | json}}</pre></div>
-  `
+<panel-forecast5 forecast-data="vm.forecastData"></panel-forecast5>
+`
 });

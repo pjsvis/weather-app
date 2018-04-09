@@ -11,18 +11,13 @@
 
 <body>
 
-
-
   <div class="container">
-
 
     <h1>Weather App</h1>
 
-    <a href="readme.md">readme</a>
-
+   [ <a href="readme.md">readme</a> | <a href="todo.md">todo</a> ]
 
     <weather></weather>
-
 
     <div class="row">
       <div class="col-md-3">
@@ -41,15 +36,16 @@
 
   </div>
   <script src="./node_modules/moment/moment.js"></script>
+  <script src="./node_modules/lodash/lodash.js"></script>
   <script src="./node_modules/angular/angular.js"></script>
   <script src="./app/app.js"></script>
   <script src="./app/open-weather-api.service.js"></script>
-  <script src="./app/weather.component.js"></script>
+  <script src="./app/forecast-chunk.service.js"></script>
   <script src="./app/weather-icon.service.js"></script>
-  <script src="./app/panel-h3.component.js"></script>
-  <script src="./app/panel-day.component.js"></script>
+  <script src="./app/weather.component.js"></script>
   <script src="./app/panel-forecast5.component.js"></script>
-
+  <script src="./app/panel-day.component.js"></script>
+  <script src="./app/panel-h3.component.js"></script>
 </body>
 
 </html>

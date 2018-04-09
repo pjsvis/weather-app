@@ -43,7 +43,7 @@ angular.module('app').component('panelH3', {
     template: `
   <div class="col-md-1 alert alert-success centered space-right">
     <div class="badge date-time">{{vm.formatTime(vm.period.dt_txt)}}</div>
-    <div class="date-time">{{vm.formatDate(vm.period.dt_txt)}}</div>
+    <div class="date-time pull-right">{{vm.formatDate(vm.period.dt_txt)}}</div>
     <img ng-src="{{vm.getIconUrl(vm.period.weather[0].icon)}}">
     <div class="date-time">{{vm.period.weather[0].description}}</div>
     <div class="badge date-time">{{vm.formatTemp(vm.period.main.temp)}} &deg;C</div>

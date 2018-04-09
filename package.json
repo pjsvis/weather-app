@@ -20,7 +20,9 @@
     "@types/lodash": "^4.14.106",
     "angular": "^1.6.9",
     "bootstrap": "3",
+    "live-server": "^1.2.0",
     "lodash": "^4.17.5",
-    "moment": "^2.22.0"
+    "moment": "^2.22.0",
+    "typescript": "2.3.2"
   }
 }

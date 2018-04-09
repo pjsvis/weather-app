@@ -10,6 +10,9 @@ angular.module('app').component('panelH3', {
     controller: function(WeatherIconService: IWeatherIconService) {
         let vm: any = this;
         vm.getIconUrl = getIconUrl;
+        vm.formatDate = formatDate;
+        vm.formatTime = formatTime;
+        vm.formatTemp = formatTemp;
 
         vm.$onInit = function() {};
 
@@ -17,8 +20,7 @@ angular.module('app').component('panelH3', {
             if (changes.period.currentValue) {
                 let period: List = changes.period.currentValue;
                 vm.period = period;
-                // let datStr: any = moment(period.dt_txt);
-                console.info('period: ', period);
+                // console.info('period: ', period);
             }
         };
         function getIconUrl(code: string) {
@@ -37,9 +39,6 @@ angular.module('app').component('panelH3', {
         function formatTemp(temp: number) {
             return _.round(temp);
         }
-        vm.formatDate = formatDate;
-        vm.formatTime = formatTime;
-        vm.formatTemp = formatTemp;
     },
     template: `
   <div class="col-md-1 alert alert-success space-right">

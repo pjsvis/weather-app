@@ -32,8 +32,12 @@ angular.module('app').component('panelH3', {
             var m = moment(dt).format('ddd HH:mm');
             return m;
         }
+        function formatTemp(temp) {
+            return _.round(temp);
+        }
         vm.formatDate = formatDate;
         vm.formatTime = formatTime;
+        vm.formatTemp = formatTemp;
     },
-    template: "\n  <div class=\"col-md-1 alert alert-success space-right\">\n    <div class=\"date-time\">{{vm.formatTime(vm.period.dt_txt)}}</div>\n    <div class=\"date-time\">{{vm.formatDate(vm.period.dt_txt)}}</div>\n    <img ng-src=\"{{vm.getIconUrl(vm.period.weather[0].icon)}}\">\n    <div class=\"date-time\">{{vm.period.weather[0].description}}</div>\n  </div>\n"
+    template: "\n  <div class=\"col-md-1 alert alert-success space-right\">\n    <div class=\"date-time\">{{vm.formatTime(vm.period.dt_txt)}}</div>\n    <div class=\"date-time\">{{vm.formatDate(vm.period.dt_txt)}}</div>\n    <img ng-src=\"{{vm.getIconUrl(vm.period.weather[0].icon)}}\">\n    <div class=\"date-time\">{{vm.period.weather[0].description}}</div>\n    <div class=\"date-time\">{{vm.formatTemp(vm.period.main.temp)}} &deg;C</div>\n  </div>\n"
 });

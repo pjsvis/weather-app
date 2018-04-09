@@ -1,5 +1,5 @@
 /**
- * Display five days woth of forecast data
+ * Display five days worth of forecast data
  */
 angular.module('app').component('panelForecast5', {
     bindings: {

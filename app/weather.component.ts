@@ -42,7 +42,11 @@ angular.module('app').component('weather', {
     },
     template: `
 
-<div class="h3">{{vm.city.name}} {{vm.city.country}} 5 day forecast</div>
+
+<div class="h3">
+<span>{{vm.city.name}} {{vm.city.country}} 5 day forecast</span>
+<span class="pull-right">Weather App  [ <a href="README.md">readme</a> | <a href="TODO.md">todo</a> ]</span>
+</div>
 
 <panel-forecast5 forecast-data="vm.forecastData"></panel-forecast5>
 `

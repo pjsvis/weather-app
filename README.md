@@ -10,12 +10,12 @@ See also the code for TODOs and comments.
 
 ## Demo
 
-1. A demo of the app can be found at ``
+1. A demo of the app can be found at [http://weather.visibility.net/](http://weather.visibility.net/)
 
 ## Install
 
 1. Clone the repository from [https://github.com/pjsvis/weather-app](https://github.com/pjsvis/weather-app)
-1.  Run `yarn` or `npm install` to install the project dependencies
+1. Run `yarn` or `npm install` to install the project dependencies
 
 ## Run
 
@@ -36,8 +36,8 @@ The app structure is flat, which is not ideal, and would be easy to refactor int
 
 The requirements were:
 
-1. "...a single HML page displaying the 5 day weather forecast for a location of your choice."
-2. "...a decent user experience. ...something readable..."
+1. "_...a single HML page displaying the 5 day weather forecast for a location of your choice._"
+2. "_...a decent user experience. ...something readable..._"
 
 The first requirement was met but the second requirement not so much!
 

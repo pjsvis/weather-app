@@ -36,5 +36,5 @@ angular.module('app').component('weather', {
         }
         vm.$onChanges = function (changes) { };
     },
-    template: "\n\n<div class=\"h3\">{{vm.city.name}} {{vm.city.country}} 5 day forecast</div>\n\n<panel-forecast5 forecast-data=\"vm.forecastData\"></panel-forecast5>\n"
+    template: "\n\n\n<div class=\"h3\">\n<span>{{vm.city.name}} {{vm.city.country}} 5 day forecast</span>\n<span class=\"pull-right\">Weather App  [ <a href=\"README.md\">readme</a> | <a href=\"TODO.md\">todo</a> ]</span>\n</div>\n\n<panel-forecast5 forecast-data=\"vm.forecastData\"></panel-forecast5>\n"
 });

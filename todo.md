@@ -2,11 +2,9 @@
 
 ## todo
 
-- [ ] figure out how to parse day from three hour data
-  - [ ] get temps as celsius/fahrenheit
-  - [ ] use momentJs to parse dates
-- [ ] create day forecast component
-- [ ] get list of country [codes in json](https://gist.github.com/keeguon/2310008)
+- [ ] see data processing section below...
+- [ ] get temps as celsius/fahrenheit
+- [ ] use momentJs to parse dates
 
 ## done
 
@@ -22,12 +20,14 @@
 ## issues
 
 - [ ] ?zip=EH6,GB gets us edinburgh but ?zip=EH12345,GB gets us nothing
-- [ ] report that we got nothing?
 - [ ] get city list as json
 - [ ] select city by name
 - [ ] build url with city id and country code
+- [ ] get list of country [codes in json](https://gist.github.com/keeguon/2310008)
 
 ## data processing
+
+NOTE: this won't work as the first and final days do not have 8X 3-hour periods
 
 - [X] use _.chunk to split list of day data into days
 - [ ] now we have a list of five day chunks

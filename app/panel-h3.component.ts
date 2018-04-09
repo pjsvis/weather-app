@@ -17,19 +17,32 @@ angular.module('app').component('panelH3', {
             if (changes.period.currentValue) {
                 let period: List = changes.period.currentValue;
                 vm.period = period;
+                // let datStr: any = moment(period.dt_txt);
+                console.info('period: ', period);
             }
         };
         function getIconUrl(code: string) {
             let url = WeatherIconService.icon(code);
             return url;
         }
+        function formatDate(dt: string) {
+            let m = moment(dt).format('DDMMMYY');
+            return m;
+        }
+
+        function formatTime(dt: string) {
+            let m = moment(dt).format('ddd HH:mm');
+            return m;
+        }
+        vm.formatDate = formatDate;
+        vm.formatTime = formatTime;
     },
     template: `
   <div class="col-md-1 alert alert-success space-right">
-    {{vm.period.dt_txt}}
+    <div class="date-time">{{vm.formatTime(vm.period.dt_txt)}}</div>
+    <div class="date-time">{{vm.formatDate(vm.period.dt_txt)}}</div>
     <img ng-src="{{vm.getIconUrl(vm.period.weather[0].icon)}}">
-    {{vm.period.weather[0].description}}
+    <div class="date-time">{{vm.period.weather[0].description}}</div>
   </div>
 `
 });
-

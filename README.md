@@ -39,8 +39,6 @@ The requirements were:
 1. "_...a single HML page displaying the 5 day weather forecast for a location of your choice._"
 2. "_...a decent user experience. ...something readable..._"
 
-The first requirement was met but the second requirement not so much!
-
 The forecast data comprised 40X periods of three hours. The initial strategy was to chunk the 40 periods into 5 days of 8 periods. This strategy was not successful as the current day's forecast was for the remainder of the day. IE less that eight periods. Similarly the final day's forecast was for an incomplete day.
 
 The final UI shows five rows twenty four hour forecasts. The first column shows the time nearest to current time. Each of the forecast times of day is shown in eight columns.
@@ -49,7 +47,7 @@ The UI allows the user to see the forecast for the next 24 hours by scanning alo
 
 Five day forecasts for a particular period can be read by scanning down one of the columns.
 
-For example cold with continuous rain for Tuesday thru Thursday and getting warmer on Friday and Saturday. Still raining though.
+For example in Edinburgh it will be cold with continuous rain for Tuesday thru Thursday, getting warmer on Friday and Saturday, but still raining.
 
 Some issues for discussion:
 

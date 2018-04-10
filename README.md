@@ -43,12 +43,16 @@ The first requirement was met but the second requirement not so much!
 
 The forecast data comprised 40X periods of three hours. The initial strategy was to chunk the 40 periods into 5 days of 8 periods. This strategy was not successful as the current day's forecast was for the remainder of the day. IE less that eight periods. Similarly the final day's forecast was for an incomplete day.
 
-In summary the layout of the forecast periods is like a broken 24h clock and will be right once a day.
+The final UI shows five rows twenty four hour forecasts. The first column shows the time nearest to current time. Each of the forecast times of day is shown in eight columns.
 
-The forecast-chunk.service needs refactoring to resolve the above issue and get the forecast data split correctly into days.
+The UI allows the user to see the forecast for the next 24 hours by scanning along the first row.
+
+Five day forecasts for a particular period can be read by scanning down one of the columns.
+
+For example cold with continuous rain for Tuesday thru Thursday and getting warmer on Friday and Saturday. Still raining though.
 
 Some issues for discussion:
 
-1. Maybe the first and last days need padded out with empty periods.
-1. Maybe we should display one column per day instead of one row per day.
+1. Layout of the forecast periods.
 1. Maybe the user could decide when he/she wants the day to begin eg 06:00
+1. Forecast summaries
